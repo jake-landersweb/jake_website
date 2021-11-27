@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <div>
+        <h2 class="mb-4 p-4 bg-cgray-600 font-bold text-2xl">
+            Random Articles
+        </h2>
+    </div>
+    <div class="pb-8">
+        {% include "blog/articles/random_articles.html" with articles=articles category="random" %}
+    </div>
+    <div class="p-5 bg-cgray-600">
+        <div class="pb-5">
+            <h1 class="pb-3 text-4xl font-bold">
+                About Me
+            </h1>
+            <hr class="solid text-gray-500">
+            <p class="pt-2">
+                I am a mobile developer who first started working with Swift back in 2018, and then migrated to SwiftUI
+                when
+                that released. I have focused solely on iOS development for most of my career, but have started
+                branching
+                out into flutter for cross platorm support. Check out my Github and this website for some examples of
+                what I
+                do.
+            </p>
+        </div>
+        <div class="pb-5">
+            <h1 class="pb-3 text-2xl font-bold">
+                Content
+            </h1>
+            <hr class="solid text-gray-500">
+            <p class="pt-2">
+                I tend to get stuck with little UI / visual issues here and there when constructing my apps, and I want
+                to
+                share some of the fixes I have come up with as a result of those. All of the code on this webiste is
+                free to
+                use in anyway, and I hope it happens to help. If there are any questions, feel free to email me or leave
+                a
+                comment and I will try to reply in a timely manner.
+            </p>
+        </div>
+        <div class="pb-5">
+            <h1 class="pb-3 text-2xl font-bold">
+                Skills
+            </h1>
+            <hr class="solid text-gray-500">
+            <ul class="pt-2">
+                <li>- SwiftUI - Native iOS Apps</li>
+                <li>- Flutter - Crossplatorm Mobile Apps</li>
+                <li>- OOP Languages, especially: Python, Java, Swift, Kotlin, Dart</li>
+                <li>- Django - Web Framework</li>
+                <li>- AWS DynamoDB - NoSQL managed database</li>
+                <li>- Machine Learning - PyTorch and Tensorflow with Keras</li>
+                <li>- Script Writing (bash, zsh)</li>
+            </ul>
+        </div>
+        <div>
+            <h1 class="pb-3 text-2xl font-bold">
+                Contact
+            </h1>
+            <hr class="solid text-gray-500">
+            <p class="pt-2 pb-3">
+                If you have any questions about the work that I have posted or want some help with a project you are
+                currently working on, please shoot me an email!
+            </p>
+            <ul>
+                <li>Email: <a href="mailto:me@jakelanders.com" class="text-indigo-400 hover:text-indigo-700">
+                        me@jakelanders.com
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
