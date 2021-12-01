@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <!-- load the required scripts for highlighting code -->
@@ -16,9 +18,9 @@
 </head>
 
 <div>
-    <div class="p-5 bg-cgray-600">
+    <div class="p-5 bg-cgray-600 space-y-4">
         <!-- for showing article metadata -->
-        <div class="pb-5">
+        <div class="">
             <h1 class="text-4xl font-extrabold">
                 {{ article.title }}
             </h1>
@@ -29,25 +31,26 @@
                 {{ article.get_tags }}
             </p>
         </div>
-        <!-- for showing video or image -->
-        {% if article.image != "" or article.video != "" %}
-        <div class="pb-8 md:grid md:grid-cols-4 md:grid-flow-col md:gap-8">
-            {% if article.image != "" %}
-            <div class="col-span-2 max-w-sm">
-                <img src="{{ article.image.url }}" alt="{{ article.image.url }}">
+        <!-- for image assets -->
+        <div class="grid grid-cols-2 lg:grid-cols-3 md:gap-8">
+            {% for image in images %}
+            <div class="rounded-md">
+                <img src="{{ image.image.url }}" alt="">
             </div>
-            {% endif %}
-            {% if article.video != "" %}
-            <div class="col-span-2">
+            {% endfor %}
+        </div>
+        <!-- for video assets -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 md:gap-8">
+            {% for video in videos %}
+            <div class="rounded-md">
                 <video width="250" controls>
-                    <source src="{{ article.video.url }}" type="video/mp4">
-                    <source src="{{ article.video.url }}" type="video/ogg">
-                    <b> {{ video.title }} </b>
+                    <source src=" {{ video.video.url }}" type="video/mp4">
+                    <source src="{{ video.video.url }}" type="video/ogg">
+                    <b> {{ video.file }} </b>
                 </video>
             </div>
-            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
         <article class="prose sm:max-w-none md:max-w-5xl content-center">
             {{ article.body | safe }}
         </article>

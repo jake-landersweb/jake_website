@@ -17,8 +17,6 @@ class Article(models.Model):
     description = models.TextField(default="")
     body = models.TextField()
     tags = models.CharField(max_length=200, default="")
-    image = models.ImageField(upload_to="assets/", default="", blank=True)
-    video = models.FileField(upload_to="assets/", default="", blank=True)
 
     def get_tags(self):
         if self.tags == "":
@@ -62,3 +60,26 @@ class Reply(models.Model):
     def __str__(self):
         return "Reply on article: {}".format(self.article)
 
+
+class Image(models.Model):
+    image = models.FileField(upload_to="assets/", default="", blank=True)
+    name = models.CharField(max_length=100, default="")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+    def __str__(self):
+        if self.name == "":
+            return str(self.image.url)
+        else:
+            return self.name
+
+
+class Video(models.Model):
+    video = models.FileField(upload_to="assets/", default="", blank=True)
+    name = models.CharField(max_length=100, default="")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+    def __str__(self):
+        if self.name == "":
+            return str(self.video.url)
+        else:
+            return self.name

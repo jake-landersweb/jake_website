@@ -114,8 +114,14 @@ def article_detail(request, category, id):
     # get all replies
     replies = Reply.objects.filter(article__id=id)
 
+    # get all assets
+    images = Image.objects.filter(article__id=id)
+    videos = Video.objects.filter(article__id=id)
+
     return render(
-        request, "blog/articles/article.html", {"article": article, "replies": replies}
+        request,
+        "blog/articles/article.html",
+        {"article": article, "replies": replies, "images": images, "videos": videos},
     )
 
 
