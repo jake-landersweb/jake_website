@@ -51,7 +51,8 @@
             </div>
             {% endfor %}
         </div>
-        <article class="prose sm:max-w-none md:max-w-5xl content-center">
+        <article
+            class="prose prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-h4:text-white prose-p:text-white prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
             {{ article.body | safe }}
         </article>
     </div>
@@ -85,12 +86,12 @@
                     </div>
                     <div class="w-full px-3 mt-2">
                         <textarea
-                            class="bg-gray-700 rounded border border-gray-700 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
+                            class="bg-gray-700 rounded leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
                             name="message" placeholder='Type Your Comment' required id="message"></textarea>
                     </div>
                     <div class="w-full px-3 mb-3 mt-2">
                         <input
-                            class="bg-gray-700 rounded border border-gray-700 leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
+                            class="bg-gray-700 rounded leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
                             name="name" placeholder='Your Name (Optional)' id="name"></input>
                     </div>
                     <div class="w-full flex items-start px-3">

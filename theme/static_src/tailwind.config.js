@@ -42,7 +42,37 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            // typography: {
+            //     DEFAULT: {
+            //         css: {
+            //             color: '#ffffff',
+            //             a: {
+            //                 color: '#3182ce',
+            //                 '&:hover': {
+            //                     color: '#2c5282',
+            //                 },
+            //             },
+            //             h1: {
+            //                 color: "#ffffff"
+            //             },
+            //             h2: {
+            //                 color: "#ffffff"
+            //             },
+            //             h3: {
+            //                 color: "#ffffff"
+            //             },
+            //             pre: {
+            //                 color: "#ffffff",
+            //                 backgroundColor: "#212327"
+            //             },
+            //             blockquote: {
+            //                 color: "#767678"
+            //             }
+            //         },
+            //     },
+            // },
+        },
     },
     plugins: [
         /**
