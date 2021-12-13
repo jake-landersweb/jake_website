@@ -12,14 +12,14 @@
 
     <div class="pb-8 md:pb-0">
         <a href="{% url 'article_detail' article.category.title|lower article.id %}">
-            <div class="p-5 bg-cgray-600 hover:opacity-50">
+            <div class="p-5 bg-gray-700 sm:hover:bg-teal-400 sm:hover:scale-105 sm:hover:shadow-lg sm:transition-all">
                 <h1 class="text-2xl font-bold">
                     {{ article.title }}
                 </h1>
                 <p class="pb-2">
                     {{ article.date }}
                 </p>
-                <p class="pb-2 text-cgray-400">
+                <p class="pb-2 text-gray-400">
                     {{ article.get_tags_small }}
                 </p>
                 <hr class="solid text-gray-500">
