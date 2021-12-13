@@ -35,7 +35,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-3 md:gap-8">
             {% for image in images %}
             <div class="rounded-md">
-                <img src="{% static image.image.url %}" alt="">
+                <img src="{{ image.image.url }}" alt="">
             </div>
             {% endfor %}
         </div>
@@ -44,8 +44,8 @@
             {% for video in videos %}
             <div class="rounded-md">
                 <video width="250" controls>
-                    <source src=" {% static video.video.url %}" type="video/mp4">
-                    <source src="{% static video.video.url %}" type="video/ogg">
+                    <source src=" {{ video.video.url }}" type="video/mp4">
+                    <source src="{{ video.video.url }}" type="video/ogg">
                     <b> {{ video.file }} </b>
                 </video>
             </div>
