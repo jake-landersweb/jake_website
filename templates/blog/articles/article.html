@@ -52,7 +52,7 @@
             {% endfor %}
         </div>
         <article
-            class="prose prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-h4:text-white prose-p:text-white prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
+            class="prose prose-invert prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
             {{ article.body | safe }}
         </article>
     </div>
@@ -77,7 +77,7 @@
         {% endfor %}
         {% endif %}
         <div class="flex items-center max-w-2xl">
-            <form class="w-full max-w-2xl bg-gray-800 rounded-lg px-4 pt-2" action="" method="post">
+            <form class="w-full bg-gray-800 px-4 pt-2 grid place-items-center" action="" method="post">
                 {% csrf_token %}
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div>

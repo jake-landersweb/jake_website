@@ -8,6 +8,7 @@ from django.db.models import Q
 from blog.models import *
 
 from .models import Reply
+from . import mail
 
 # Create your views here.
 
@@ -106,6 +107,17 @@ def article_detail(request, category, id):
                 name=name if name is not None and name != "" else "Anonymous",
             )
             reply.save()
+
+            # send an email
+            mail.send_mail(
+                "me@jakelanders.com",
+                "Reply on article: {}".format(article),
+                "There was a reply on article: {}\n\n{}/n- {}".format(
+                    article,
+                    message,
+                    name if name is not None and name != "" else "Anonymous",
+                ),
+            )
 
             return HttpResponseRedirect(
                 reverse("article_detail", args=[category, article.id])

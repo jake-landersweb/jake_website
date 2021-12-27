@@ -7,30 +7,39 @@
     <meta name="description" content="{{ category }}">
 </head>
 
-<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
-    {% for article in articles %}
+<div class="">
+    {% if articles%}
+    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        {% for article in articles %}
 
-    <div class="pb-8 md:pb-0">
-        <a href="{% url 'article_detail' article.category.title|lower article.id %}">
-            <div class="p-5 bg-gray-700 sm:hover:bg-teal-400 sm:hover:scale-105 sm:hover:shadow-lg sm:transition-all">
-                <h1 class="text-2xl font-bold">
-                    {{ article.title }}
-                </h1>
-                <p class="pb-2">
-                    {{ article.date }}
-                </p>
-                <p class="pb-2 text-gray-400">
-                    {{ article.get_tags_small }}
-                </p>
-                <hr class="solid text-gray-500">
-                <p class="pt-3">
-                    {{ article.description }}
-                </p>
-            </div>
-        </a>
+        <div class="pb-8 md:pb-0">
+            <a href="{% url 'article_detail' article.category.title|lower article.id %}">
+                <div
+                    class="p-5 bg-gray-700 sm:hover:bg-teal-400 sm:hover:scale-105 sm:hover:shadow-lg sm:transition-all">
+                    <h1 class="text-2xl font-bold">
+                        {{ article.title }}
+                    </h1>
+                    <p class="pb-2">
+                        {{ article.date }}
+                    </p>
+                    <p class="pb-2 text-gray-400">
+                        {{ article.get_tags_small }}
+                    </p>
+                    <hr class="solid text-gray-500">
+                    <p class="pt-3">
+                        {{ article.description }}
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
     </div>
-
-    {% endfor %}
+    {% else %}
+    <h2 class="text-4xl text-white font-bold">
+        There are no articles here.
+    </h2>
+    {% endif %}
 </div>
 
 {% endblock content %}
