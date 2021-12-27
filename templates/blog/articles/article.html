@@ -31,81 +31,78 @@
                 {{ article.get_tags }}
             </p>
         </div>
-        <!-- for image assets -->
-        <div class="grid grid-cols-2 lg:grid-cols-3 md:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 space-y-4 md:space-y-8">
+            <!-- for image assets -->
             {% for image in images %}
-            <div class="rounded-md max-w-[200px]">
-                <img src="{{ image.image.url }}" alt="">
+            <div>
+                <img src="{{ image.image.url }}" alt="" width="250" class="rounded-2xl">
             </div>
             {% endfor %}
-        </div>
-        <!-- for video assets -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 md:gap-8">
+            <!-- for video assets -->
             {% for video in videos %}
-            <div class="rounded-md">
+            <div>
                 <video width="250" controls>
-                    <source src=" {{ video.video.url }}" type="video/mp4" class="rounded-lg">
-                    <source src="{{ video.video.url }}" type="video/ogg" class="rounded-lg">
+                    <source src=" {{ video.video.url }}" type="video/mp4" class="rounded-2xl">
+                    <source src="{{ video.video.url }}" type="video/ogg" class="rounded-2xl">
                     <b> {{ video.file }} </b>
                 </video>
             </div>
             {% endfor %}
+            <article
+                class="prose prose-invert prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
+                {{ article.body | safe }}
+            </article>
         </div>
-        <article
-            class="prose prose-invert prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
-            {{ article.body | safe }}
-        </article>
-    </div>
-    <div class="pt-8"></div>
-    <div class="p-5 bg-gray-700">
-        {% if replies|length > 0 %}
-        <h2 class="text-3xl font-extrabold pb-3">
-            Comments
-        </h2>
-        {% for reply in replies %}
-        <div class="bg-gray-800 rounded-lg p-5 max-w-2xl mb-5">
-            <div class="pb-3">
-                {{ reply.message }}
+        <div class="pt-8"></div>
+        <div class="p-5 bg-gray-700">
+            {% if replies|length > 0 %}
+            <h2 class="text-3xl font-extrabold pb-3">
+                Comments
+            </h2>
+            {% for reply in replies %}
+            <div class="bg-gray-800 rounded-lg p-5 max-w-2xl mb-5">
+                <div class="pb-3">
+                    {{ reply.message }}
+                </div>
+                <div class="text-gray-400">
+                    - {{ reply.name }}
+                </div>
+                <div class="text-xs">
+                    {{ reply.date }}
+                </div>
             </div>
-            <div class="text-gray-400">
-                - {{ reply.name }}
-            </div>
-            <div class="text-xs">
-                {{ reply.date }}
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
-        <div class="flex items-center max-w-2xl">
-            <form class="w-full bg-gray-800 px-4 pt-2 grid place-items-center" action="" method="post">
-                {% csrf_token %}
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div>
-                        <h2 class="px-4 pt-3 text-white text-lg">Leave me some feedback!</h2>
-                        <h3 class="px-4 pb-2 text-gray-400 text-sm">No account required</h3>
-                    </div>
-                    <div class="w-full px-3 mt-2">
-                        <textarea
-                            class="bg-gray-700 rounded leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
-                            name="message" placeholder='Type Your Comment' required id="message"></textarea>
-                    </div>
-                    <div class="w-full px-3 mb-3 mt-2">
-                        <input
-                            class="bg-gray-700 rounded leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
-                            name="name" placeholder='Your Name (Optional)' id="name"></input>
-                    </div>
-                    <div class="w-full flex items-start px-3">
-
-                        <div class="-mr-1">
-                            <input type='submit'
-                                class="hover:cursor-pointer bg-teal-600 text-white font-medium py-1 px-4 rounded tracking-wide mr-1 hover:opacity-50"
-                                value='Post Comment'>
+            {% endfor %}
+            {% endif %}
+            <div class="flex items-center max-w-2xl">
+                <form class="w-full bg-gray-800 px-4 pt-2 grid place-items-center" action="" method="post">
+                    {% csrf_token %}
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div>
+                            <h2 class="px-4 pt-3 text-white text-lg">Leave me some feedback!</h2>
+                            <h3 class="px-4 pb-2 text-gray-400 text-sm">No account required</h3>
                         </div>
-                    </div>
-            </form>
+                        <div class="w-full px-3 mt-2">
+                            <textarea
+                                class="bg-gray-700 rounded leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
+                                name="message" placeholder='Type Your Comment' required id="message"></textarea>
+                        </div>
+                        <div class="w-full px-3 mb-3 mt-2">
+                            <input
+                                class="bg-gray-700 rounded leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:border-teal-400"
+                                name="name" placeholder='Your Name (Optional)' id="name"></input>
+                        </div>
+                        <div class="w-full flex items-start px-3">
+
+                            <div class="-mr-1">
+                                <input type='submit'
+                                    class="hover:cursor-pointer bg-teal-600 text-white font-medium py-1 px-4 rounded tracking-wide mr-1 hover:opacity-50"
+                                    value='Post Comment'>
+                            </div>
+                        </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 {% endblock content %}
