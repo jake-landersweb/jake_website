@@ -34,26 +34,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 space-y-4 md:space-y-8">
             <!-- for image assets -->
             {% for image in images %}
-            <div>
-                <img src="{{ image.image.url }}" alt="" width="250" class="rounded-2xl">
-            </div>
+            <img src="{{ image.image.url }}" alt="" width="250" class="rounded-2xl">
             {% endfor %}
             <!-- for video assets -->
             {% for video in videos %}
-            <div>
-                <video width="250" controls>
-                    <source src=" {{ video.video.url }}" type="video/mp4" class="rounded-2xl">
-                    <source src="{{ video.video.url }}" type="video/ogg" class="rounded-2xl">
-                    <b> {{ video.file }} </b>
-                </video>
-            </div>
+            <video width="250" class="rounded-2xl" controls>
+                <source src=" {{ video.video.url }}" type="video/mp4">
+                <source src="{{ video.video.url }}" type="video/ogg">
+                <b> {{ video.file }} </b>
+            </video>
             {% endfor %}
-            <article
-                class="prose prose-invert prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
-                {{ article.body | safe }}
-            </article>
         </div>
-        <div class="pt-8"></div>
+        <article
+            class="pt-10 prose prose-invert prose-a:text-teal-400 hover:prose-a:text-teal-600 sm:max-w-none md:max-w-5xl content-center">
+            {{ article.body | safe }}
+        </article>
         <div class="p-5 bg-gray-700">
             {% if replies|length > 0 %}
             <h2 class="text-3xl font-extrabold pb-3">
