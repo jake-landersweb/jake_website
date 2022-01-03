@@ -32,7 +32,9 @@ def flutter(request):
         if search_text is not None and search_text != "":
             print("redirecting to search articles function")
             return HttpResponseRedirect(reverse("article_search", args=[search_text]))
-    articles = Article.objects.filter(category__title="Flutter")
+    articles = Article.objects.filter(
+        Q(category__title="Flutter") | Q(category__title="Flutter and SwiftUI")
+    )
     if request.method == "POST":
         print("post")
     return render(
@@ -49,7 +51,9 @@ def swiftui(request):
             print("redirecting to search articles function")
             return HttpResponseRedirect(reverse("article_search", args=[search_text]))
 
-    articles = Article.objects.filter(category__title="SwiftUI")
+    articles = Article.objects.filter(
+        Q(category__title="SwiftUI") | Q(category__title="Flutter and SwiftUI")
+    )
 
     return render(
         request,
@@ -65,24 +69,11 @@ def machine_learning(request):
             print("redirecting to search articles function")
             return HttpResponseRedirect(reverse("article_search", args=[search_text]))
     articles = Article.objects.filter(category__title="Machine Learning")
+
     return render(
         request,
         "blog/articles/article_list.html",
         {"articles": articles, "category": "Machine Learning"},
-    )
-
-
-def flutterswiftui(request):
-    if request.method == "POST":
-        search_text = request.POST.get("search")
-        if search_text is not None and search_text != "":
-            print("redirecting to search articles function")
-            return HttpResponseRedirect(reverse("article_search", args=[search_text]))
-    articles = Article.objects.filter(category__title="Flutter and SwiftUI")
-    return render(
-        request,
-        "blog/articles/article_list.html",
-        {"articles": articles, "category": "Flutter and SwiftUI"},
     )
 
 

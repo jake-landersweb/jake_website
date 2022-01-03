@@ -31,14 +31,14 @@
                 {{ article.get_tags }}
             </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 space-y-4 md:space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 gap-4">
             <!-- for image assets -->
             {% for image in images %}
-            <img src="{{ image.image.url }}" alt="" width="250" class="rounded-2xl">
+            <img src="{{ image.image.url }}" alt="" height="400" class="rounded-2xl">
             {% endfor %}
             <!-- for video assets -->
             {% for video in videos %}
-            <video width="250" class="rounded-2xl" controls>
+            <video height="400" class="rounded-2xl" controls>
                 <source src=" {{ video.video.url }}" type="video/mp4">
                 <source src="{{ video.video.url }}" type="video/ogg">
                 <b> {{ video.file }} </b>
