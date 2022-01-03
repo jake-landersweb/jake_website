@@ -64,7 +64,9 @@ class Reply(models.Model):
 class Image(models.Model):
     image = models.FileField(upload_to="images/", default="", blank=True)
     name = models.CharField(max_length=100, default="")
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        Article, on_delete=models.CASCADE, blank=True, null=True
+    )
 
     def __str__(self):
         if self.name == "":
@@ -76,7 +78,9 @@ class Image(models.Model):
 class Video(models.Model):
     video = models.FileField(upload_to="videos/", default="", blank=True)
     name = models.CharField(max_length=100, default="")
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        Article, on_delete=models.CASCADE, blank=True, null=True
+    )
 
     def __str__(self):
         if self.name == "":
