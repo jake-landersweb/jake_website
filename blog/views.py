@@ -72,6 +72,20 @@ def machine_learning(request):
     )
 
 
+def flutterswiftui(request):
+    if request.method == "POST":
+        search_text = request.POST.get("search")
+        if search_text is not None and search_text != "":
+            print("redirecting to search articles function")
+            return HttpResponseRedirect(reverse("article_search", args=[search_text]))
+    articles = Article.objects.filter(category__title="Flutter and SwiftUI")
+    return render(
+        request,
+        "blog/articles/article_list.html",
+        {"articles": articles, "category": "Flutter and SwiftUI"},
+    )
+
+
 def article_detail(request, category, id):
     article = Article.objects.get(id=id)
     article.body = md.markdown(
