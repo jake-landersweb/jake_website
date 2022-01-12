@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="p-5 bg-cgray-600">
     <div class="pb-2">
         <h1 class="text-3xl font-bold">
@@ -6,23 +8,23 @@
     </div>
     <hr class="solid text-gray-500">
     <div class="pt-3">
-        <a href="{% url 'crosscheck' %}">
-            <h2 class="text-xl font-bold hover:text-cgray-300">
-                Crosscheck Mobile App
-            </h2>
-        </a>
-        <p>
-            A fully managed team sports organization application. Control your team roster, schedule, and information.
-            Written in Flutter with dyanmoDB as the backend.
+        <h2 class="text-2xl font-bold">
+            Crosscheck Sports
+        </h2>
+        <img src="{% static 'staticImages/xcheck.png' %}" class="max-h-[500px]">
+        <p class="text-lg">
+            A fully managed sports team organization application. With features like advanced roster composition, an
+            event scheduler, and a fully managed team chat room, take your sports team to the next level with Crosscheck
+            Sports.
         </p>
-        <ul>
-            <li><a href="https://xcheck.app/" target="_blank"
-                    class="text-teal-400 hover:text-teal-700">https://xcheck.app/</a></li>
+        <ul class="list-disc ml-8">
+            <li><a href="https://crosschecksports.com/" target="_blank"
+                    class="text-cus-acc text-md hover:opacity-50">https://crosschecksports.com/</a></li>
             <li><a href="https://apps.apple.com/us/app/crosscheck-hockey/id1585600361" target="_blank"
-                    class="text-teal-400 hover:text-teal-700">Apple App Store
+                    class="text-cus-acc text-md hover:opacity-50">Apple App Store
                     Link</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.landersweb.pnflutter" target="_blank"
-                    class="text-teal-400 hover:text-teal-700">Google
+                    class="text-cus-acc text-md hover:opacity-50">Google
                     Play Store Link</a></li>
         </ul>
     </div>

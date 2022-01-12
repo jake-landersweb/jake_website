@@ -26,54 +26,19 @@ def index(request):
     return render(request, "blog/index.html", {"articles": articles})
 
 
-def flutter(request):
+def articles(request):
     if request.method == "POST":
         search_text = request.POST.get("search")
         if search_text is not None and search_text != "":
             print("redirecting to search articles function")
             return HttpResponseRedirect(reverse("article_search", args=[search_text]))
-    articles = Article.objects.filter(
-        Q(category__title="Flutter") | Q(category__title="Flutter and SwiftUI")
-    )
+    articles = Article.objects.filter(category__title="Article")
     if request.method == "POST":
         print("post")
     return render(
         request,
         "blog/articles/article_list.html",
-        {"articles": articles, "category": "Flutter"},
-    )
-
-
-def swiftui(request):
-    if request.method == "POST":
-        search_text = request.POST.get("search")
-        if search_text is not None and search_text != "":
-            print("redirecting to search articles function")
-            return HttpResponseRedirect(reverse("article_search", args=[search_text]))
-
-    articles = Article.objects.filter(
-        Q(category__title="SwiftUI") | Q(category__title="Flutter and SwiftUI")
-    )
-
-    return render(
-        request,
-        "blog/articles/article_list.html",
-        {"articles": articles, "category": "SwiftUI"},
-    )
-
-
-def machine_learning(request):
-    if request.method == "POST":
-        search_text = request.POST.get("search")
-        if search_text is not None and search_text != "":
-            print("redirecting to search articles function")
-            return HttpResponseRedirect(reverse("article_search", args=[search_text]))
-    articles = Article.objects.filter(category__title="Machine Learning")
-
-    return render(
-        request,
-        "blog/articles/article_list.html",
-        {"articles": articles, "category": "Machine Learning"},
+        {"articles": articles, "category": "Article"},
     )
 
 

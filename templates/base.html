@@ -10,11 +10,14 @@
     <meta name="author" content="Jake Landers">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/github-dark.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% tailwind_css %}
 </head>
 
-<body class="bg-gray-800 text-white">
-    {% include "top_bar.html" %}
+<body class="bg-cus-bgdk text-cus-txtdk">
+    <div class="menuclass bg-cus-bgdk sticky z-50 top-0 transition-all">
+        {% include "top_bar.html" %}
+    </div>
     <div class="p-4 sm:p-8 lg:grid lg:grid-cols-4 lg:grid-flow-col lg:gap-8">
         <div class="col-span-3 pb-8">
             {% block content %} {% endblock content %}
@@ -25,5 +28,23 @@
         </div>
     </div>
 </body>
+
+<script>
+    const menuclass = document.querySelector(".menuclass");
+
+    window.addEventListener('scroll', () => {
+        let y = 1 + (window.scrollY || window.pageYOffset)
+        y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
+        if (y > 100) {
+            menuclass.classList.remove("bg-cus-bgdk");
+            menuclass.classList.add("bg-cus-celldk");
+            menuclass.classList.add("shadow-md");
+        } else {
+            menuclass.classList.remove("bg-cus-celldk");
+            menuclass.classList.add("bg-cus-bgdk");
+            menuclass.classList.remove("shadow-md");
+        }
+    });
+</script>
 
 </html>

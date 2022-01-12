@@ -1,41 +1,46 @@
 {% load tailwind_tags %}
 
-{% url 'index' as index %}
-{% url 'flutter' as flutter %}
-{% url 'swiftui' as swiftui %}
-{% url 'machine-learning' as machine_learning %}
+{% load static %}
 
-<nav class="sticky bg-gray-800 top-0 z-50">
+{% url 'index' as index %}
+{% url 'articles' as articles %}
+
+<nav>
     <div class="mx-auto px-4 md:px-8">
         <div class="relative flex items-center justify-between h-24">
             <div class="flex-1 flex items-center justify-center">
                 <div class="flex-1 flex items-center">
                     <a href="{{ index }}" class="hover:opacity-50">
                         <div>
-                            <p class="text-white text-2xl font-extrabold">Jake Landers</p>
-                            <p class="text-gray-300 text-md font-semibold">Full Stack Developer</p>
+                            <p class="text-2xl font-bold font-rubik">Jake Landers</p>
+                            <p class="text-cus-subtxtdk text-md font-semibold">Full Stack Developer</p>
                         </div>
                     </a>
                 </div>
                 <div class="hidden md:block sm:ml-6">
                     <div class="flex space-x-4">
-                        <a href="{{ flutter }}"
-                            class="{% if flutter in request.path %}bg-teal-400{% else %}hover:bg-teal-900 {% endif %} text-white px-5 py-2 text-sm font-medium">
-                            Flutter
-                        </a>
-
-                        <a href="{{ swiftui }}"
-                            class="{% if swiftui in request.path %}bg-teal-400{% else %}hover:bg-teal-900 {% endif %} text-white px-5 py-2 text-sm font-medium">
-                            SwiftUI
-                        </a>
-
-                        <a href="{{ machine_learning }}"
-                            class="{% if machine_learning in request.path %}bg-teal-400{% else %}hover:bg-teal-900 {% endif %} text-white px-5 py-2 text-sm font-medium">
-                            Machine Learning
+                        <a href="{{ articles }}" class="px-5 py-2 text-2xl font-bold hover:opacity-50">
+                            <div class="flex space-x-2 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                    class="!fill-cus-txtdk">
+                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                    <path
+                                        d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
+                                </svg>
+                                <h2>Articles</h2>
+                            </div>
                         </a>
                         <a href="https://github.com/jake-landersweb/jake_code" target="_blank"
-                            class="text-white bg-teal-400 hover:bg-teal-900 hover:text-white px-5 py-2 text-sm font-medium">
-                            Github
+                            class="px-5 py-2 text-2xl text-cus-subtxtdk font-bold hover:opacity-50">
+                            <div class="flex space-x-2 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                    class="!fill-cus-subtxtdk">
+                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                    <path
+                                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                                </svg>
+                                <h2> Github</h2>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -66,27 +71,30 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="mobile-menu transition-all duration-500 ease-in-out opacity-0 max-h-0 hidden">
-        <div class="px-5 pb-5 space-y-3">
-            <a href="{{ flutter }}"
-                class="{% if flutter in request.path %}bg-teal-400{% else %}hover:bg-teal-900{% endif %} text-white block px-5 py-2 text-base font-medium">
-                Flutter
-            </a>
-
-            <a href="{{ swiftui }}"
-                class="{% if swiftui in request.path %}bg-teal-400{% else %}hover:bg-teal-900{% endif %} text-white block px-5 py-2 text-base font-medium">
-                SwiftUI
-            </a>
-
-            <a href="{{ machine_learning }}"
-                class="{% if machine_learning in request.path %}bg-teal-400{% else %}hover:bg-teal-900{% endif %} text-white block px-5 py-2 text-base font-medium">
-                Machine Learning
-            </a>
-            <a href="https://github.com/jake-landersweb/jake_code" target="_blank"
-                class="text-white bg-teal-400 hover:bg-teal-900 block px-5 py-2 text-base font-medium">
-                Github
-            </a>
-        </div>
+    <div class="mobile-menu transition-all duration-500 ease-in-out opacity-0 max-h-0 hidden px-4">
+        <a href="{{ articles }}" class="px-5 py-2 text-2xl font-bold hover:opacity-50">
+            <div class="flex space-x-2 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                    class="!fill-cus-txtdk">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
+                </svg>
+                <h2>Articles</h2>
+            </div>
+        </a>
+        <a href="https://github.com/jake-landersweb/jake_code" target="_blank"
+            class="px-5 py-2 text-2xl text-cus-subtxtdk font-bold hover:opacity-50">
+            <div class="flex space-x-2 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                    class="!fill-cus-subtxtdk">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                </svg>
+                <h2> Github</h2>
+            </div>
+        </a>
     </div>
     <script>
         const btn = document.querySelector("button.mobile-menu-button");
@@ -111,6 +119,22 @@
                 menu.classList.add("max-h-0");
                 // hide after animation is done
                 setTimeout(() => { menu.classList.add("hidden"); }, 500);
+            }
+        });
+
+        const menuclass = document.querySelector(".menuclass");
+
+        window.addEventListener('scroll', () => {
+            let y = 1 + (window.scrollY || window.pageYOffset)
+            y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
+            if (y > 100) {
+                menuclass.classList.remove("bg-cus-bgdk");
+                menuclass.classList.add("bg-cus-celldk");
+                menuclass.classList.add("shadow-md");
+            } else {
+                menuclass.classList.remove("bg-cus-celldk");
+                menuclass.classList.add("bg-cus-bgdk");
+                menuclass.classList.remove("shadow-md");
             }
         });
     </script>

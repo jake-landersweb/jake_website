@@ -3,74 +3,64 @@
 {% block content %}
 
 <body>
-    <div>
-        <h2 class="mb-4 p-4 bg-gray-700 font-bold text-2xl">
+    <div class="space-y-8">
+        <h1 class="text-4xl font-bold">
+            About Me
+        </h1>
+        <div class="max-w-4xl space-y-4">
+            <p class="text-xl">My name is Jake Landers, and I am a fullstack developer based in Portland, OR. I publish
+                professional tutorial format articles for people to learn amazing technologies that enable their project
+                or business to thrive.</p>
+            <h3 class="text-2xl font-medium">
+                Here are a few things I use:
+            </h3>
+            <ul class="list-disc text-xl ml-8">
+                <li class="text-cus-acc"><span class="text-cus-txtdk">SwiftUI</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">I learned how to code composing
+                        SwiftUI iPhone apps, and continue to use the
+                        framework
+                        to create apps for iPhone, iPad, and mac</span></li>
+                <li class="text-cus-acc"><span class="text-cus-txtdk">Flutter</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">I use Flutter to create most iOS
+                        apps, and all Android apps. Fast and efficient
+                        tool for mobile development</span></li>
+                <li class="text-cus-acc"><span class="text-cus-txtdk">NoSQL</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">This was the first database system
+                        I learned to use, and mainly use AWS DynamoDB. But, I do use a self hosted MongoDB as
+                        well.</span></li>
+                <li class="text-cus-acc"><span class="text-cus-txtdk">Django</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">Python is my favorite language,
+                        and as such Django is the framework I use for more statically driven websites, such as this
+                        one!</span></li>
+                <li class="text-cus-acc"><span class="text-cus-txtdk">React</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">I use React when a website needs a
+                        strong concept of state and lots of user interaction.</span></li>
+                <li class="text-cus-acc"><span class="text-cus-txtdk">PyTorch</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><span class="text-cus-subtxtdk">When I hjave a need for machine
+                        learning, I use the PyTorch library over TensorFlow. (Although now both are pretty
+                        similar).</span></li>
+            </ul>
+            <h3 class="text-2xl font-medium">
+                Languages I am comfortable with
+            </h3>
+            <ul class="list-disc text-xl ml-8">
+                <li class="text-cus-acc"><span class="text-cus-txtdk">Swift, Dart, Java, Javascript, Python, Shell,
+                        Kotlin</span></li>
+            </ul>
+            <h3 class="text-2xl font-medium">
+                If you have any questions, reach out!
+            </h3>
+            <ul class="list-disc text-xl ml-8">
+                <li class="text-cus-acc"><span class="text-cus-txtdk">Email</span></li>
+                <li class="ml-8 text-lg text-cus-acc"><a href="mailto:me@jakelanders.com"
+                        class="text-cus-subtxtdk hover:text-cus-acc">me@jakelanders.com</a></li>
+            </ul>
+        </div>
+        <h2 class="font-bold text-4xl">
             Random Articles
         </h2>
-    </div>
-    <div class="pb-8">
-        {% include "blog/articles/random_articles.html" with articles=articles category="random" %}
-    </div>
-    <div class="p-5 bg-gray-700">
-        <div class="pb-5">
-            <h1 class="pb-3 text-4xl font-bold">
-                About Me
-            </h1>
-            <hr class="solid text-gray-500">
-            <p class="pt-2">
-                I am a mobile developer who first started working with Swift back in 2018, and then migrated to SwiftUI
-                when
-                that released. I have focused solely on iOS development for most of my career, but have started
-                branching
-                out into flutter for cross platorm support. Check out my Github and this website for some examples of
-                what I
-                do.
-            </p>
-        </div>
-        <div class="pb-5">
-            <h1 class="pb-3 text-2xl font-bold">
-                Content
-            </h1>
-            <hr class="solid text-gray-500">
-            <p class="pt-2">
-                I tend to get stuck with little UI / visual issues here and there when constructing my apps, and I want
-                to
-                share some of the fixes I have come up with as a result of those. All of the code on this webiste is
-                free to
-                use in anyway, and I hope it happens to help. If there are any questions, feel free to email me or leave
-                a
-                comment and I will try to reply in a timely manner.
-            </p>
-        </div>
-        <div class="pb-5">
-            <h1 class="pb-3 text-2xl font-bold">
-                Skills
-            </h1>
-            <hr class="solid text-gray-500">
-            <ul class="pt-2">
-                <li>- SwiftUI - Native iOS Apps</li>
-                <li>- Flutter - Crossplatorm Mobile Apps</li>
-                <li>- OOP Languages, especially: Python, Java, Swift, Kotlin, Dart</li>
-                <li>- Django - Web Framework</li>
-                <li>- AWS DynamoDB - NoSQL managed database</li>
-                <li>- Machine Learning - PyTorch and Tensorflow with Keras</li>
-                <li>- Script Writing (bash, zsh)</li>
-            </ul>
-        </div>
         <div>
-            <h1 class="pb-3 text-2xl font-bold">
-                Contact
-            </h1>
-            <hr class="solid text-gray-500">
-            <p class="pt-2 pb-3">
-                If you have any questions about the work that I have posted or want some help with a project you are
-                currently working on, please shoot me an email!
-            </p>
-            <ul>
-                <li>Email: <a href="mailto:me@jakelanders.com" class="text-teal-400 hover:text-teal-700">
-                        me@jakelanders.com
-                    </a></li>
-            </ul>
+            {% include "blog/articles/random_articles.html" with articles=articles category="random" %}
         </div>
     </div>
 </body>

@@ -43,35 +43,19 @@ module.exports = {
     ],
     theme: {
         extend: {
-            // typography: {
-            //     DEFAULT: {
-            //         css: {
-            //             color: '#ffffff',
-            //             a: {
-            //                 color: '#3182ce',
-            //                 '&:hover': {
-            //                     color: '#2c5282',
-            //                 },
-            //             },
-            //             h1: {
-            //                 color: "#ffffff"
-            //             },
-            //             h2: {
-            //                 color: "#ffffff"
-            //             },
-            //             h3: {
-            //                 color: "#ffffff"
-            //             },
-            //             pre: {
-            //                 color: "#ffffff",
-            //                 backgroundColor: "#212327"
-            //             },
-            //             blockquote: {
-            //                 color: "#767678"
-            //             }
-            //         },
-            //     },
-            // },
+            fontFamily: {
+                "sans": ['Rubik']
+            },
+            colors: {
+                cus: {
+                    acc: '#36A4D3',
+                    txtdk: '#F0F0FA',
+                    celldk: '#3c3c46',
+                    subcelldk: '#50505a',
+                    bgdk: '#282832',
+                    subtxtdk: '#C8C8D2',
+                },
+            },
         },
     },
     plugins: [

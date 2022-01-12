@@ -6,20 +6,21 @@
 <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
     {% for article in articles %}
 
-    <div class="pb-4 md:pb-0">
+    <div class="pb-8 md:pb-0">
         <a href="{% url 'article_detail' article.category.title|lower article.id %}">
-            <div class="p-5 bg-gray-700 sm:hover:bg-teal-400 sm:hover:scale-105 sm:hover:shadow-lg sm:transition-all">
-                <h1 class="text-2xl font-bold">
+            <div
+                class="p-5 bg-cus-celldk sm:hover:bg-cus-acc sm:hover:scale-[1.02] sm:hover:shadow-lg sm:transition-all">
+                <h1 class="text-3xl font-bold">
                     {{ article.title }}
                 </h1>
-                <p class="pb-2">
+                <p class="pb-2 text-xl font-semibold text-cus-subtxtdk">
                     {{ article.date }}
                 </p>
-                <p class="pb-2 text-gray-400">
+                <p class="pb-2 text-cus-subtxtdk">
                     {{ article.get_tags_small }}
                 </p>
-                <hr class="solid text-gray-500">
-                <p class="pt-3">
+                <hr class="solid text-cus-subtxtdk">
+                <p class="pt-3 font-medium text-lg">
                     {{ article.description }}
                 </p>
             </div>
